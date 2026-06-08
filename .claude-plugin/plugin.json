@@ -1,9 +1,9 @@
 {
-  "name": "feature-dev",
+  "name": "feature-dev-lite",
   "version": "1.0.0",
-  "description": "Comprehensive feature development workflow with specialized agents for codebase exploration, architecture design, and quality review",
+  "description": "Cost-optimized feature development workflow: graphify-driven exploration, a single pragmatic architecture, a single git-diff reviewer, per-phase model assignment, and terse summaries. A streamlined fork of feature-dev tuned for GitHub Copilot CLI.",
   "author": {
-    "name": "Sid Bidasaria",
-    "email": "sbidasaria@anthropic.com"
+    "name": "BV Satyaram",
+    "email": "bvsatyaram@gmail.com"
   }
 }
