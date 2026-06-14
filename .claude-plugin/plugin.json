@@ -1,5 +1,5 @@
 {
-  "name": "feature-dev-lite",
+  "name": "feature-dev-deepseek",
   "version": "1.0.0",
   "description": "Cost-optimized feature development workflow: graphify-driven exploration, a single pragmatic architecture, a single git-diff reviewer, per-phase model assignment, and terse summaries. A streamlined fork of feature-dev tuned for GitHub Copilot CLI.",
   "author": {

@@ -15,12 +15,12 @@ Primarily intended for **GitHub Copilot CLI** (loadable via `/plugin`).
 
 Under the new Copilot pricing, the original workflow burns a lot of tokens: it
 spawns 2–3 explorer agents, 2–3 architect agents, and 3 reviewer agents, reads
-*all* files they surface, and writes prose-heavy summaries. `feature-dev-lite`
+*all* files they surface, and writes prose-heavy summaries. `feature-dev-deepseek`
 trims that while protecting output quality.
 
 ### What changed vs feature-dev
 
-| Phase | feature-dev | feature-dev-lite |
+| Phase | feature-dev | feature-dev-deepseek |
 |-------|-------------|------------------|
 | 2 Exploration | 2–3 `code-explorer` agents, read all surfaced files | **1** `code-explorer-lite` driven by the **graphify** graph; read only ~5 essential files |
 | 4 Architecture | 2–3 `code-architect` agents, multiple approaches | **1** `code-architect-lite`, **one** pragmatic-balance approach, confirm before building |
@@ -57,16 +57,16 @@ their own model in frontmatter — don't override them.
 - Git repository (Phase 6 reviews `git diff`).
 - An existing codebase to learn from.
 
-## Command: `/feature-dev-lite`
+## Command: `/feature-dev-deepseek`
 
 ```bash
-/feature-dev-lite Add user authentication with OAuth
+/feature-dev-deepseek Add user authentication with OAuth
 ```
 
 or just:
 
 ```bash
-/feature-dev-lite
+/feature-dev-deepseek
 ```
 
 > **Fast-path**: this workflow is for multi-file or ambiguous features. For a
