@@ -24,13 +24,13 @@ spend: fewer agents, graph-driven exploration, fewer file reads, and terse I/O.
 
 | Phase | Runs on |
 |-------|---------|
-| 1, 3, 5 (orchestrator) | this main session — **Sonnet 4.6** |
-| 2 `code-explorer-lite` | **claude-sonnet-4.6** (subagent) |
-| 4 `code-architect-lite` | **claude-opus-4.8** (subagent) |
-| 6 `code-reviewer-lite` | **claude-opus-4.8** (subagent) |
-| 7 `summary-writer-lite` | **claude-haiku-4.5** (subagent) |
+| 1, 3, 5 (orchestrator) | this main session — **deepseek-v4-pro** |
+| 2 `code-explorer-lite` | **deepseek-v4-pro** (subagent) |
+| 4 `code-architect-lite` | **deepseek-v4-pro** (subagent) |
+| 6 `code-reviewer-lite` | **deepseek-v4-pro** (subagent) |
+| 7 `summary-writer-lite` | **deepseek-v4-pro** (subagent) |
 
-Run this command on **Sonnet 4.6** (`/model claude-sonnet-4.6`). The subagents
+Run this command on **deepseek-v4-pro** (`/model deepseek-v4-pro`). The subagents
 carry their own model in their frontmatter — do not override it.
 
 > **Fast-path**: this workflow is for multi-file or ambiguous features. For a
@@ -39,7 +39,7 @@ carry their own model in their frontmatter — do not override it.
 
 ---
 
-## Phase 1: Discovery — *Sonnet 4.6 (this session)*
+## Phase 1: Discovery — *deepseek-v4-pro (this session)*
 
 **Goal**: Understand what needs to be built.
 
@@ -76,7 +76,7 @@ Initial request: $ARGUMENTS
 
 ---
 
-## Phase 3: Clarifying Questions — *Sonnet 4.6 (this session)*
+## Phase 3: Clarifying Questions — *deepseek-v4-pro (this session)*
 
 **Goal**: Resolve all blocking ambiguities before designing. **DO NOT SKIP.**
 
@@ -92,7 +92,7 @@ Initial request: $ARGUMENTS
 
 ---
 
-## Phase 4: Architecture Design — *single agent, Opus 4.8*
+## Phase 4: Architecture Design — *single agent, deepseek-v4-pro*
 
 **Goal**: One solid, decisive approach — not a menu.
 
@@ -107,7 +107,7 @@ Initial request: $ARGUMENTS
 
 ---
 
-## Phase 5: Implementation — *Sonnet 4.6 (this session)*
+## Phase 5: Implementation — *deepseek-v4-pro (this session)*
 
 **Goal**: Build the feature.
 
@@ -122,7 +122,7 @@ Initial request: $ARGUMENTS
 
 ---
 
-## Phase 6: Quality Review — *single agent, Opus 4.8*
+## Phase 6: Quality Review — *single agent, deepseek-v4-pro*
 
 **Goal**: Catch high-impact issues with one reviewer by default.
 
@@ -141,13 +141,13 @@ Initial request: $ARGUMENTS
 
 ---
 
-## Phase 7: Summary — *single agent, Haiku 4.5*
+## Phase 7: Summary — *single agent, deepseek-v4-pro*
 
 **Goal**: Document what was accomplished — **concisely**.
 
 **Actions**:
 1. Mark all todos complete.
-2. Launch the `summary-writer-lite` agent (Haiku 4.5) to produce the wrap-up.
+2. Launch the `summary-writer-lite` agent (deepseek-v4-pro) to produce the wrap-up.
    It must **prefer file paths, symbols, and decisions over prose**: what was
    built (symbol + `file:line`), key decisions (one line each), files changed,
    and optional next steps. No process recap, no marketing language.

@@ -2,7 +2,7 @@
 name: code-architect-lite
 description: Cost-optimized architecture design. Reuses the existing graphify graph plus the explorer's findings to design ONE pragmatic-balance approach (speed + quality) with a concrete, actionable implementation blueprint.
 tools: Glob, Grep, Read, Bash
-model: claude-opus-4.8
+model: deepseek-v4-pro
 color: green
 ---
 

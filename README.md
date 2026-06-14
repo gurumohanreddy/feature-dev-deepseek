@@ -25,22 +25,22 @@ trims that while protecting output quality.
 | 2 Exploration | 2–3 `code-explorer` agents, read all surfaced files | **1** `code-explorer-lite` driven by the **graphify** graph; read only ~5 essential files |
 | 4 Architecture | 2–3 `code-architect` agents, multiple approaches | **1** `code-architect-lite`, **one** pragmatic-balance approach, confirm before building |
 | 6 Review | 3 `code-reviewer` agents | **1** `code-reviewer-lite`, **`git diff`** default scope; ask before adding a 2nd on security/auth/payments/data-migration |
-| 7 Summary | prose summary | **1** `summary-writer-lite` (Haiku); file paths, symbols, decisions over prose |
-| Models | sonnet everywhere | **per-phase** model assignment (below) |
+| 7 Summary | prose summary | **1** `summary-writer-lite` (deepseek-v4-pro); file paths, symbols, decisions over prose |
+| Models | deepseek-v4-pro | **per-phase** model assignment (below) |
 
 ## Per-phase model assignment
 
 | Phase | Work | Model |
 |-------|------|-------|
-| 1 Discovery | orchestrator | Sonnet 4.6 (main session) |
-| 2 Exploration | `code-explorer-lite` | `claude-sonnet-4.6` |
-| 3 Clarifying Questions | orchestrator | Sonnet 4.6 (main session) |
-| 4 Architecture | `code-architect-lite` | `claude-opus-4.8` |
-| 5 Implementation | orchestrator | Sonnet 4.6 (main session) |
-| 6 Review | `code-reviewer-lite` | `claude-opus-4.8` |
-| 7 Summary | `summary-writer-lite` | `claude-haiku-4.5` |
+| 1 Discovery | orchestrator | deepseek-v4-pro (main session) |
+| 2 Exploration | `code-explorer-lite` | `deepseek-v4-pro` |
+| 3 Clarifying Questions | orchestrator | deepseek-v4-pro (main session) |
+| 4 Architecture | `code-architect-lite` | `deepseek-v4-pro` |
+| 5 Implementation | orchestrator | deepseek-v4-pro (main session) |
+| 6 Review | `code-reviewer-lite` | `deepseek-v4-pro` |
+| 7 Summary | `summary-writer-lite` | `deepseek-v4-pro` |
 
-Run the command on Sonnet 4.6 (`/model claude-sonnet-4.6`). Subagents carry
+Run the command on deepseek-v4-pro (`/model deepseek-v4-pro`). Subagents carry
 their own model in frontmatter — don't override them.
 
 ## Requirements
@@ -74,7 +74,7 @@ or just:
 
 ## The 7-phase workflow
 
-### Phase 1: Discovery — *Sonnet 4.6*
+### Phase 1: Discovery — *deepseek-v4-pro*
 Clarify the request (problem, behavior, constraints), then confirm a 2–4 line
 understanding.
 
@@ -85,39 +85,39 @@ queries the graph (`GRAPH_REPORT.md`, `graph.json`) and returns a concise map
 plus **≤ ~5 essential files**. Only those files are read. Consider `/compact`
 afterward.
 
-### Phase 3: Clarifying Questions — *Sonnet 4.6*
+### Phase 3: Clarifying Questions — *deepseek-v4-pro*
 One consolidated, prioritized list of **blocking** questions. Waits for answers
 before designing. (Do not skip.)
 
-### Phase 4: Architecture Design — *1 agent, Opus 4.8*
+### Phase 4: Architecture Design — *1 agent, deepseek-v4-pro*
 A single `code-architect-lite` agent designs **one** pragmatic-balance approach
 (reusing the graph + explorer findings) with a concrete implementation map.
 You're asked to **confirm before implementation**.
 
-### Phase 5: Implementation — *Sonnet 4.6*
+### Phase 5: Implementation — *deepseek-v4-pro*
 Starts only after approval. Implements the chosen architecture, follows codebase
 conventions, tracks todos.
 
-### Phase 6: Quality Review — *1 agent, Opus 4.8*
+### Phase 6: Quality Review — *1 agent, deepseek-v4-pro*
 A single `code-reviewer-lite` agent reviews the unstaged `git diff`
 (confidence ≥ 80 only). If the change touches **security / auth / payments /
 data migration**, the workflow **pauses and asks** whether to add a second,
 focused reviewer — it never auto-spawns extra reviewers. You decide what to do
 with findings (fix now / later / proceed).
 
-### Phase 7: Summary — *1 agent, Haiku 4.5*
+### Phase 7: Summary — *1 agent, deepseek-v4-pro*
 A `summary-writer-lite` agent writes a terse wrap-up: what was built
 (symbol + `file:line`), key decisions, files changed, optional next steps —
 **no prose recap**.
 
 ## Agents
 
-- **`code-explorer-lite`** (Sonnet 4.6) — graph-first exploration; fails fast if
+- **`code-explorer-lite`** (deepseek-v4-pro) — graph-first exploration; fails fast if
   graphify's graph is absent; returns ≤ ~5 essential files.
-- **`code-architect-lite`** (Opus 4.8) — one decisive pragmatic-balance blueprint.
-- **`code-reviewer-lite`** (Opus 4.8) — single reviewer, `git diff` default,
+- **`code-architect-lite`** (deepseek-v4-pro) — one decisive pragmatic-balance blueprint.
+- **`code-reviewer-lite`** (deepseek-v4-pro) — single reviewer, `git diff` default,
   confidence-filtered.
-- **`summary-writer-lite`** (Haiku 4.5) — terse path/symbol/decision summary.
+- **`summary-writer-lite`** (deepseek-v4-pro) — terse path/symbol/decision summary.
 
 ## Additional cost-saving behaviors
 
@@ -135,4 +135,4 @@ The "lite" adjustments optimize for cost on GitHub Copilot CLI.
 
 ## Version
 
-1.0.0
+1.0.1

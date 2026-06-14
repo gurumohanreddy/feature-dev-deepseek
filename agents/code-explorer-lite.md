@@ -2,7 +2,7 @@
 name: code-explorer-lite
 description: Cost-optimized codebase exploration. Uses the graphify knowledge graph (graphify-out/) as the primary source instead of bulk file reads, then returns a concise map of how a feature works plus a short list of only the essential files to read.
 tools: Glob, Grep, Read, Bash
-model: claude-sonnet-4.6
+model: deepseek-v4-pro
 color: yellow
 ---
 
